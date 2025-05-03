@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /*Colors*/
+    --body-bg: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    --logo-settings-bg: #fbfdfe;
+    --logo-settings-border: #d6e2f5;
+    --icon-part-color: #C7231A;
+    --text-part-color: #091540;
+    --header-h1-color: #091540;
+    --filter-button-bg: #fbfdfe;
+    --filter-button-border: #d6e2f5;
+    --filter-button-color:  #091540;
+    --filter-active-bg: #c7231a;
+    --filter-active-color: #fbfdfe;
+    --card-bg: #fbfdfe;
+    --card-border: #d6e2f5;
+    --details-h2-color:#091540;
+    --details-p-color: #535868;
+    --actions-button-color: #091540;
+    --actions-button-border: #c6c6c6;
+    --actions-button-hover-bg: #c7231a;
+    --actions-button-hover-color: #fbfdfe;
+    --switch-slider-bg: #c6c6c6;
+    --slider-checked-bg: #c7231a;
+    --buttons-focus-color: #c7231a;
+    --card-shadow: rgba(194, 206, 225, 0.2);
+    /*font sizes*/
+    --preset-1: 2.125rem;
+    --preset-2: 1.25rem;
+    --preset-3: 1rem;
+
+    /*spacing*/
+    --spacng-0: 0px;
+    --spacing-025: 2px;
+    --spacing-05: 4px;
+    --spacing-075: 6px;
+    --spacing-100: 8px;
+    --spacing-125: 10px;
+    --spacing-150: 12px;
+    --spacing-200: 16px;
+    --spacing-250: 20px;
+    --spacing-300: 24px;
+    --spacing-400: 32px;
+    --spacing-500: 40px;
+    --spacing-600: 48px;
+    --spacing-800: 64px;
+    --spacing-1000: 80px;
+}
+
+[data-theme="dark"] {
+    --body-bg: linear-gradient(180deg, #040918 0%, #091540 100%);
+    --logo-settings-bg: #202535;
+    --logo-settings-border: #d6e2f5;
+    --icon-part-color: #f25c54;
+    --text-part-color: #ffffff;
+    --header-h1-color: #fbfdfe;
+    --filter-button-bg: #2f364b;
+    --filter-button-border: #535868;
+    --filter-button-color:  #fbfdfe;
+    --filter-active-bg: #f25c54;
+    --filter-active-color: #091540;
+    --card-bg: #202535;
+    --card-border: #535868;
+    --details-h2-color:#fbfdfe;
+    --details-p-color: #c6c6c6;
+    --actions-button-color: #fbfdfe;
+    --actions-button-border: #535868;
+    --switch-slider-bg: #535868;
+    --slider-checked-bg: #f25c54;
+    --actions-button-hover-bg: #f25c54;
+    --actions-button-hover-color: #091540;
+    --buttons-focus-color: #f25c54;
+    
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: var(--body-bg);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    font-family: 'Noto Sans', sans-serif;
+    padding: var(--spacing-250) var(--spacing-200) var(--spacing-800) var(--spacing-200);
+}
+main {
+    max-width: 375px;
+    width: 100%;
+}
+.logo-settings-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--logo-settings-bg);
+    padding: clamp(0.5rem, 0.4120rem + 0.3756vw, 0.75rem) clamp(0.75rem, 0.6620rem + 0.3756vw, 1rem);
+    border-radius: 10px;
+}
+.logo-settings-container button {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    
+}
+.icon-sun {
+    background-color: #2f364b;
+}
+.icon-sun:hover {
+    background-color: #535868;
+}
+.theme-toggle {
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+.theme-toggle:hover {
+    filter: brightness(0.9);
+}
+.text-part {
+    fill: var(--text-part-color);
+}
+.icon-part {
+    fill: var(--icon-part-color);
+}
+.main-container {
+    width: 100%;
+}
+.main-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: var(--spacing-500) 0;
+    
+}
+.main-header h1 {
+    font-size: var(--preset-1);
+    color: var(--header-h1-color);
+    margin-bottom: var(--spacing-300);
+    letter-spacing: -1px;
+}
+.filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-150);
+}
+.filter-container button {
+    all: unset;
+    padding: var(--spacing-100) var(--spacing-250) var(--spacing-125) var(--spacing-250);
+    border-radius: 999px;
+    border: 1px solid var(--filter-button-border);
+    background-color: var(--filter-button-bg);
+    color: var(--filter-button-color);
+    font-size: var(--preset-2);
+    letter-spacing: -0.3px;
+    cursor: pointer;
+}
+.filter-container button:focus, .extension-actions button:focus, input:focus + .slider, .theme-toggle:focus {
+    outline: 2px solid var(--buttons-focus-color);
+    outline-offset: 2px;
+}
+.filter-container .active {
+    background-color: var(--filter-active-bg);
+    color: var(--filter-active-color);
+    border: none;
+}
+.extension-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
+    gap: var(--spacing-150);
+}
+.extension-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: var(--spacing-250) var(--spacing-250);
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 2px 2px 0px var(--card-shadow);
+    
+}
+.extension-info {
+    display: flex;
+    gap: var(--spacing-200);
+}
+.extension-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+.extension-details {
+    gap: var(--spacing-100);
+    display: flex;
+    flex-direction: column;
+}
+.extension-details h2 {
+    font-size: var(--preset-2);
+    color: var(--details-h2-color);
+    letter-spacing: -0.2px;
+    font-weight: bold;
+}
+.extension-details p {
+    font-size: var(--preset-3);
+    color: var(--details-p-color);
+    letter-spacing: -0.5px;
+}
+.extension-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.extension-actions button {
+    all: unset;
+    padding: var(--spacing-100) var(--spacing-200);
+    border-radius: 999px;
+    border: 1px solid var(--actions-button-border);
+    color: var(--actions-button-color);
+    font-size: var(--preset-3);
+    letter-spacing: -0.5px;
+    cursor: pointer;
+
+}
+.extension-actions button:hover {
+    background-color: var(--actions-button-hover-bg);
+    color: var(--actions-button-hover-color);
+    border: none;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+    cursor: pointer;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-slider-bg);
+    transition: .2s ease;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #fbfdfe;
+    transition: .2s ease;
+    border-radius: 50%;
+}
+.switch input:checked + .slider {
+    background-color: var(--slider-checked-bg);
+}
+input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+
+@media screen and (min-width: 768px) {
+    body {
+        padding: var(--spacing-300) var(--spacing-400) var(--spacing-800) var(--spacing-400);
+    }
+    main {
+        max-width: 768px;
+        width: 100%;
+        
+    }
+    .logo-settings-container {
+        border-radius: 20px;
+    }
+    .main-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: var(--spacing-500) 0 var(--spacing-400) 0;
+    }
+    .main-header h1 {
+        margin-bottom: 0;
+    }
+    .extension-container {
+        grid-template-columns: repeat(auto-fit, minmax(346px, 1fr));
+    }
+    
+}
+@media screen and (min-width: 1440px) {
+    body {
+        padding: var(--spacing-500) 8.4375rem var(--spacing-800) 8.4375rem;
+    }
+    main {
+        max-width: 1170px;
+        width: 100%;
+    }
+    .main-header {
+        margin: var(--spacing-800) 0 var(--spacing-400) 0;
+    }
+    .extension-container {
+        grid-template-columns: repeat(auto-fit, minmax(382px, 1fr));
+    }
+    
+}
